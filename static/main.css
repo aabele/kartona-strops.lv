@@ -1,0 +1,8 @@
+* {
+    font-family: "Roboto", "proxima-nova", "Proxima Nova", sans-serif;
+}
+
+.bee-background {
+    background: url("../images/background-bees.jpg");
+    background-size: cover;
+}
