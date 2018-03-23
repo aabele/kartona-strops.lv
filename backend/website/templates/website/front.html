@@ -1,0 +1,30 @@
+{% extends "website/base.html" %}
+
+{% block html_title %}Tikai pie mums{% endblock %}
+
+{% block page_body %}
+
+    <div class="text-white bee-background">
+        <div class="container pt-4 pb-2">
+            <div class="row text-dark card-group">
+                {% for object in object_list %}
+                    <div class="col-12 col-sm-6 col-md-3 pb-3 d-flex align-items-stretch">
+                        <div class="card">
+                            <a href="{{ object.get_absolute_url }}">
+                                <img class="card-img-top" src="{{ object.picture.url }}" alt="{{ object.description }}">
+                            </a>
+
+                            <div class="card-body">
+                                <p class="card-text h6">
+                                    <a href="{{ object.get_absolute_url }}" class="text-dark">
+                                        {{ object.description }}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

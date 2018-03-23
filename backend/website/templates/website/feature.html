@@ -1,0 +1,44 @@
+{% extends "website/base.html" %}
+
+{% block html_title %}{{ object.title }}{% endblock %}
+{% block html_description %}{{ object.description }}{% endblock %}
+
+{% block page_body %}
+    <div class="text-white bee-background">
+        <div class="container">
+            <div class="row pt-4 pb-4">
+                <div class="col-3 offset-1">
+                    <img src="{{ object.picture.url }}" alt="{{ object.title }}" class="img-thumbnail float-leftsss">
+                </div>
+                <div class="col-7">
+                    <h1>
+                        <a href="{{ object.get_absolute_url }}" rel="permalink" class="text-white">
+                            {{ object.title }}
+                        </a>
+                    </h1>
+                    <hr>
+                    <p>{{ object.description }}</p>
+
+                    {% if object.details %}
+                        <br>
+                        {{ object.details|linebreaks }}
+                    {% endif %}
+
+                    <h5>Lasi arī...</h5>
+
+                    <ul>
+                        {% for item in other_objects %}
+                            <li>
+                                <a href="{{ item.get_absolute_url }}" class="text-white">
+                                    {{ item }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
