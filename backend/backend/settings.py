@@ -132,4 +132,5 @@ BUILD_DIR = os.path.join(BASE_DIR, '..', 'docs')
 BAKERY_VIEWS = (
     'website.views.FrontPage',
     'website.views.FeatureDetailPage',
+    'website.views.CNAMEFile',
 )

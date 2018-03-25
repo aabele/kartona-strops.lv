@@ -2,12 +2,16 @@
 Website views
 """
 
-from bakery.views import BuildableListView, BuildableDetailView
+from bakery.views import BuildableListView, BuildableDetailView, BuildableTemplateView
 from website import models
 
 
-class FrontPage(BuildableListView):
+class CNAMEFile(BuildableTemplateView):
+    build_path = 'CNAME'
+    template_name = 'website/CNAME'
 
+
+class FrontPage(BuildableListView):
     build_path = 'index.html'
     template_name = 'website/front.html'
     model = models.Feature
