@@ -11,6 +11,11 @@ class CNAMEFile(BuildableTemplateView):
     template_name = 'website/CNAME'
 
 
+class ContactPage(BuildableTemplateView):
+    build_path = 'kontakti/index.html'
+    template_name = 'website/contacts.html'
+
+
 class FrontPage(BuildableListView):
     build_path = 'index.html'
     template_name = 'website/front.html'

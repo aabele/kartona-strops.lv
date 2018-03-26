@@ -133,4 +133,5 @@ BAKERY_VIEWS = (
     'website.views.FrontPage',
     'website.views.FeatureDetailPage',
     'website.views.CNAMEFile',
+    'website.views.ContactPage',
 )
