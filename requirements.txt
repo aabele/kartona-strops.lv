@@ -1,3 +1,4 @@
 django
 django-bakery
 Pillow
+sorl-thumbnail

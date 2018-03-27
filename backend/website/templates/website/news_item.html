@@ -1,0 +1,37 @@
+{% extends "website/base.html" %}
+{% load thumbnail %}
+
+{% block html_title %}{{ object.title }}{% endblock %}
+{% block html_description %}{{ object.description|slice:"0:300" }}{% endblock %}
+{% block page_heading_txt %}
+    {{ object.title }}
+{% endblock %}
+{% block page_body %}
+
+    <div class="text-white bee-background">
+        <div class="container">
+            <div class="row text-white pb-5 pt-5">
+                <div class="col-6">
+                    {% thumbnail object.picture "600x600" crop="center" upscale="False" as thumb %}
+                        <div class="card">
+                            <img src="{{ thumb.url }}" alt="{{ object.title}}" class="img-fluid card-img-top rounded">
+                        </div>
+                    {% endthumbnail %}
+                </div>
+                <div class="col-6">
+                    {{ object.description|linebreaks }}
+
+                    <p>
+                        Publicēts: {{ object.insert_date|date:"Y.m.d"}}
+                    </p>
+
+                </div>
+                <div class="col-12 pt-3">
+                    <a href="javascript: history.back()" class="text-white">
+                        &laquo; Atgriezties
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

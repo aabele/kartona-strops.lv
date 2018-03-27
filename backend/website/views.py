@@ -31,3 +31,19 @@ class FeatureDetailPage(BuildableDetailView):
         data = super().get_context_data(**kwargs)
         data['other_objects'] = self.model.objects.all().exclude(pk=self.object.pk)
         return data
+
+
+class NewsIndexPage(BuildableListView):
+    build_path = 'jaunumi/index.html'
+    template_name = 'website/news_index.html'
+    model = models.Post
+
+
+class NewsDetailPage(BuildableDetailView):
+    template_name = 'website/news_item.html'
+    model = models.Post
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['other_objects'] = self.model.objects.all().exclude(pk=self.object.pk)
+        return data

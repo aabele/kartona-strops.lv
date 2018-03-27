@@ -6,13 +6,15 @@
 {% block page_body %}
     <div class="text-white bee-background">
         <div class="container">
-            <div class="row pt-4 pb-4">
+            <div class="row pt-5 pb-5">
                 <div class="col-3 offset-1">
-                    <img src="{{ object.picture.url }}" alt="{{ object.title }}" class="img-thumbnail float-leftsss">
+                    <div class="card">
+                        <img src="{{ object.picture.url }}" alt="{{ object.title }}" class="img-fluid card-img-top rounded">
+                    </div>
                 </div>
                 <div class="col-7">
                     <h1>
-                        <a href="{{ object.get_absolute_url }}" rel="permalink" class="text-white">
+                        <a href="{{ object.get_absolute_url }}" rel="permalink" class="text-white h3">
                             {{ object.title }}
                         </a>
                     </h1>

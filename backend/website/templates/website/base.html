@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta charset="UTF-8">
     <title>{% block html_title %}Sākums{% endblock %} | Kartona stropi</title>
@@ -30,7 +30,15 @@
                         </a>
                     </h1>
                     <p>
-                        <a href="/kontakti/" class="text-dark">Kontakti</a>
+                        <a href="/jaunumi/" class="text-dark">
+                            Jaunumi
+                        </a> |
+                        <a href="/kontakti/" class="text-dark">
+                            Kontakti
+                        </a> |
+                        <a href="#" class="text-dark">
+                            Salocīšanas pamācība
+                        </a>
                     </p>
                 </div>
                 <div class="pb-2 col-12 col-sm-12 col-md-6 text-center text-sm-center text-md-right">
@@ -53,11 +61,17 @@
                 </div>
             </div>
 
-            <div class="row pb-2">
-                <div class="col-12 pt-3 pb-3">
-                    <p class="text-center h5">{{ greeting_txt|linebreaksbr }}</p>
+            {% block page_heading %}
+                <div class="row pb-2">
+                    <div class="col-12 pt-3 pb-3">
+                        <p class="text-center h5">
+                            {% block page_heading_txt %}
+                                {{ greeting_txt|linebreaksbr }}
+                            {% endblock %}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            {% endblock %}
         </div>
     </div>
     {% block page_body %}{% endblock %}

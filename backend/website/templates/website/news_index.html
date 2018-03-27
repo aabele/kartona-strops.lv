@@ -1,0 +1,42 @@
+{% extends "website/base.html" %}
+{% load thumbnail %}
+
+{% block html_title %}Jaunumi{% endblock %}
+{% block page_heading_txt %}Jaunumi{% endblock %}
+{% block page_body %}
+
+    <div class="text-white bee-background">
+        <div class="container pb-5 pt-5">
+            <div class="row text-white">
+                {% for object in object_list %}
+                    <div class="col-2 offset-1">
+                        {% thumbnail object.picture "200x200" crop="center" upscale="False" as thumb %}
+                            <div class="card">
+                                <img src="{{ thumb.url }}" alt="{{ object.title}}" class="img-fluid card-img-top rounded">
+                            </div>
+                        {% endthumbnail %}
+                    </div>
+                    <div class="col-8">
+                        <div class="pb-2">
+                            <h2 class="h3">
+                                <a href="{{ object.get_absolute_url }}" class="text-white">
+                                    {{ object.title }}
+                                </a>
+                            </h2>
+
+                            <p>
+                                {{ object.description|slice:"0:300" }}...
+                            </p>
+
+                            <p>
+                                Publicēts: {{ object.insert_date|date:"Y.m.d"}}
+                            </p>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -21,3 +21,26 @@ class Feature(BuildableModel):
     def _build_related(self):
         from website import views
         views.FrontPage().build_queryset()
+
+
+class Post(BuildableModel):
+    """
+    News item
+    """
+    title = models.CharField(max_length=300)
+    description = models.TextField()
+    slug = models.SlugField(blank=True, null=True)
+    picture = models.ImageField(upload_to='news')
+
+    insert_date = models.DateTimeField(auto_now_add=True)
+    last_updates = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return '/jaunumi/{0}/'.format(self.slug)
+
+    def _build_related(self):
+        from website import views
+        views.FrontPage().build_queryset()

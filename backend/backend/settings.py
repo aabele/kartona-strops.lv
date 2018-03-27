@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'website',
 
     'bakery',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -112,11 +113,11 @@ LANGUAGE_CODE = 'lv'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -134,4 +135,6 @@ BAKERY_VIEWS = (
     'website.views.FeatureDetailPage',
     'website.views.CNAMEFile',
     'website.views.ContactPage',
+    'website.views.NewsIndexPage',
+    'website.views.NewsDetailPage',
 )
