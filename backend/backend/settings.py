@@ -137,4 +137,6 @@ BAKERY_VIEWS = (
     'website.views.ContactPage',
     'website.views.NewsIndexPage',
     'website.views.NewsDetailPage',
+    'website.views.GoogleFile',
+    'website.views.PricePage',
 )

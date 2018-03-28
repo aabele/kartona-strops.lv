@@ -6,6 +6,11 @@ from bakery.views import BuildableListView, BuildableDetailView, BuildableTempla
 from website import models
 
 
+class GoogleFile(BuildableTemplateView):
+    build_path = 'googlef253714f8dd5ca86.html'
+    template_name = 'website/googlef253714f8dd5ca86.html'
+
+
 class CNAMEFile(BuildableTemplateView):
     build_path = 'CNAME'
     template_name = 'website/CNAME'
@@ -47,3 +52,8 @@ class NewsDetailPage(BuildableDetailView):
         data = super().get_context_data(**kwargs)
         data['other_objects'] = self.model.objects.all().exclude(pk=self.object.pk)
         return data
+
+
+class PricePage(BuildableTemplateView):
+    build_path = 'cenas/index.html'
+    template_name = 'website/prices.html'
