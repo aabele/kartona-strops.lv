@@ -131,12 +131,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'pub', 'media')
 
 BUILD_DIR = os.path.join(BASE_DIR, '..', 'docs')
 BAKERY_VIEWS = (
-    'website.views.FrontPage',
-    'website.views.FeatureDetailPage',
-    'website.views.CNAMEFile',
-    'website.views.ContactPage',
-    'website.views.NewsIndexPage',
-    'website.views.NewsDetailPage',
-    'website.views.GoogleFile',
-    'website.views.PricePage',
+    'website.build_views.FrontPage',
+    'website.build_views.FeatureDetailPage',
+    'website.build_views.CNAMEFile',
+    'website.build_views.ContactPage',
+    'website.build_views.NewsIndexPage',
+    'website.build_views.NewsDetailPage',
+    'website.build_views.GoogleFile',
+    'website.build_views.PricePage',
 )
