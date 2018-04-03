@@ -2,3 +2,6 @@ django
 django-bakery
 Pillow
 sorl-thumbnail
+django-bootstrap4
+django-localflavor
+pdfkit

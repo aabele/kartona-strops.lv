@@ -1,0 +1,37 @@
+{% extends "website/base.html" %}
+{% load bootstrap4 %}
+
+{% block html_title %}Pasūtījums{% endblock %}
+
+{% block page_body %}
+
+    <div class="row text-white bee-background">
+        <div class="col-6 offset-3 pt-5 pb-5">
+            <h2>Pasūtījuma forma</h2>
+
+            <p>
+                Pēc formas aizpildīšanas jums uz epastu tiks nosūtīts priekšapmaksas rēķins.
+                Pasūtījuma izpilde tiks sākta tikai pēc rēķina apmaksas saņemšanas.
+            </p>
+
+            <p>
+                Ievadītā informācija tiks izmantota TIKAI lai sagatavotu maksājuma dokumentus.
+            </p>
+
+            {% bootstrap_form_errors form type="non_fields" layout="horizontal" %}
+
+            <form action="{{ request.path }}" method="post" class="form pt-4">
+                {% csrf_token %}
+                {% bootstrap_form form layout='horizontal' %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">Nosūtīt</button>
+                {% endbuttons %}
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

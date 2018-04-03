@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'website',
+    'order',
 
+    'localflavor',
+    'bootstrap4',
     'bakery',
     'sorl.thumbnail',
 ]

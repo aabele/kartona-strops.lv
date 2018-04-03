@@ -16,6 +16,7 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('orders', include('order.urls')),
     path('', include('website.urls')),
     path('admin/', admin.site.urls),
 ]
