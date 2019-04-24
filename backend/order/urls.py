@@ -7,5 +7,5 @@ from order import views
 
 urlpatterns = [
 
-    path('', views.CreateOrderView.as_view(), name='create'),
+    path('/', views.CreateOrderView.as_view(), name='create'),
 ]

@@ -1,9 +1,39 @@
 {% extends "website/base.html" %}
+{% load thumbnail %}
 
 {% block html_title %}Tikai pie mums{% endblock %}
 
 {% block page_body %}
+    <div class="pb-4 bg-light">
+        <div class="container pb-2 pt-3 bg-dark">
+            <div class="row text-light pb-2">
+                {% for object in latest_news %}
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="{{ object.get_absolute_url }}" class="text-light">
+                                    {% thumbnail object.picture "200x200" crop="center" upscale="False" as thumb %}
+                                        <img src="{{ thumb.url }}" alt="{{ object.title}}" class="img-fluid rounded">
+                                    {% endthumbnail %}
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <h6>
+                                    <a href="{{ object.get_absolute_url }}" class="text-light">
+                                        {{ object.title }}
+                                    </a>
+                                </h6>
 
+                                <p class="small">
+                                    Publicēts: {{ object.insert_date|date }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <div class="text-white bee-background">
         <div class="container pt-4 pb-2">
             <div class="row text-dark card-group">

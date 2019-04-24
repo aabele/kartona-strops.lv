@@ -19,7 +19,7 @@
                     {% endthumbnail %}
                 </div>
                 <div class="col-6">
-                    {{ object.description|linebreaks }}
+                    {{ object.description|safe|linebreaks }}
 
                     <p>
                         Publicēts: {{ object.insert_date|date:"Y.m.d"}}

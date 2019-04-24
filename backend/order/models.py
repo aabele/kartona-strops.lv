@@ -60,7 +60,7 @@ class Order(models.Model):
         date_string = now().strftime('%d/%m/%Y')
         return '{0}-{1}'.format(
             date_string,
-            self.__class__.objects.filter(verbose_id__startswith=date_string).count()
+            self.__class__.objects.filter(verbose_id__startswith=date_string).count() + 1
         )
 
     def make_invoice(self):

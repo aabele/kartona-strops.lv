@@ -7,6 +7,11 @@ class FrontPage(ListView):
     model = models.Feature
     template_name = 'website/front.html'
 
+    def get_context_data(self, *args, **kwargs):
+        data = super().get_context_data(*args, **kwargs)
+        data["latest_news"] = models.Post.objects.all().order_by("-id")[:2]
+        return data
+
 
 class FeatureDetailView(DetailView):
 
@@ -25,6 +30,12 @@ class FeatureDetailView(DetailView):
 class NewsListView(ListView):
     model = models.Post
     template_name = 'website/news_index.html'
+
+    def get_ordering(self):
+        """
+        Get item ordering params
+        """
+        return '-id',
 
 
 class NewsDetailView(DetailView):

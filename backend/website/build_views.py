@@ -26,6 +26,12 @@ class FrontPage(BuildableListView):
     template_name = 'website/front.html'
     model = models.Feature
 
+    def get_context_data(self, *args, **kwargs):
+        print("XXX")
+        data = super().get_context_data(*args, **kwargs)
+        data["latest_news"] = models.Post.objects.all().order_by("-id")[:2]
+        return data
+
 
 class FeatureDetailPage(BuildableDetailView):
 
@@ -42,6 +48,12 @@ class NewsIndexPage(BuildableListView):
     build_path = 'jaunumi/index.html'
     template_name = 'website/news_index.html'
     model = models.Post
+
+    def get_ordering(self):
+        """
+        Get item ordering params
+        """
+        return '-id',
 
 
 class NewsDetailPage(BuildableDetailView):
